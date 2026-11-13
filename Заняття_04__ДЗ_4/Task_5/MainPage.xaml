@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Task_5.MainPage"
+    Title="Products">
+
+    <VerticalStackLayout
+        Padding="20"
+        Spacing="15">
+
+        <Label
+            Text="Product List"
+            FontSize="24"
+            HorizontalOptions="Center" />
+
+        <Grid
+            ColumnDefinitions="2*,*,*,3*"
+            Padding="5">
+
+            <Label
+                Grid.Column="0"
+                Text="Name"
+                FontAttributes="Bold" />
+
+            <Label
+                Grid.Column="1"
+                Text="Price"
+                FontAttributes="Bold" />
+
+            <Label
+                Grid.Column="2"
+                Text="Country"
+                FontAttributes="Bold" />
+
+            <Label
+                Grid.Column="3"
+                Text="Information"
+                FontAttributes="Bold" />
+
+        </Grid>
+
+        <CollectionView
+            x:Name="ProductsCollectionView"
+            SelectionMode="Single">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        ColumnDefinitions="2*,*,*,3*"
+                        Padding="5">
+
+                        <Label
+                            Grid.Column="0"
+                            Text="{Binding Name}" />
+
+                        <Label
+                            Grid.Column="1"
+                            Text="{Binding Price}" />
+
+                        <Label
+                            Grid.Column="2"
+                            Text="{Binding Country}" />
+
+                        <Label
+                            Grid.Column="3"
+                            Text="{Binding Details}" />
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <HorizontalStackLayout
+            Spacing="15"
+            HorizontalOptions="Center">
+
+            <Button
+                Text="Add product"
+                Clicked="AddProductButton_Clicked" />
+
+            <Button
+                Text="Delete product"
+                Clicked="DeleteProductButton_Clicked" />
+
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+
+</ContentPage>
